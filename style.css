@@ -1,7 +1,45 @@
-input {
-  width:80%;
-  padding:5px;
+body{
+  color: whitesmoke !important;
 }
+.navbar, footer{
+  background-color:  #bd6712 !important;
+  color: whitesmoke !important;
+}
+.navbar .nav-link{
+  border-left: none !important;
+  border-right: none !important;
+  border: 0;
+  text-shadow: none !important;
+  color: white !important;
+  
+} 
+a:hover, .navbar .nav-link:hover .nav-link:focus{
+  border-left: none !important;
+  border-right: none !important;
+  background-color: rgba(0,0,0,0.5) !important;
+  background-image: none !important;
+} 
 .container-fluid{
   width: inherit !important;
+}
+a:hover{
+  text-decoration: none;
+  padding: 1.2rem 2rem;
+}
+.btn{
+  padding: 0.8rem 1rem !important;
+}
+
+.embed-responsive .card-img-top {
+  object-fit: cover;
+}
+.card img{
+  height: 40vh;
+  margin-top: 2rem;
+}
+.card{
+  margin-bottom: 2rem;
+}
+.card-body{
+  height: 6rem;
 }
