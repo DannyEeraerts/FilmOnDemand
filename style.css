@@ -1,3 +1,7 @@
+:root {
+  --modal-duration: 1s;
+  --modal-color: #428bca;
+}
 body{
   color: whitesmoke !important;
 }
@@ -29,7 +33,6 @@ a:hover{
 .btn{
   padding: 0.8rem 1rem !important;
 }
-
 .embed-responsive .card-img-top {
   object-fit: cover;
 }
@@ -43,3 +46,50 @@ a:hover{
 .card-body{
   height: 6rem;
 }
+.actor0, .actor1, .actor2, .actor3, .director0, .director1, .alternativeMovie{
+  color: #bd6712;
+}
+.actor0:hover, .actor1:hover, .actor2:hover, .actor3:hover, .director0:hover, .director1:hover, .alternativeMovie:hover{
+  color: whitesmoke;
+  background-color: #bd6712;
+  padding: 0.25rem 0.5rem;
+}
+.movieTitle .title {
+  color: whitesmoke;
+  background-color: #bd6712;
+  padding: 0.5rem 1rem;
+}
+.my-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+}
+.my-modal-content {
+  background-color: #ccc;
+  color: black;
+  padding: 2rem;
+  margin: 10% auto;
+  width: 93.5%;
+  height: 30%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 1), 0 7px 20px 0 rgba(0, 0, 0, 0.95);
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+}
+.close {
+  color:  #bd6712;
+  float: right;
+  font-size: 2.5rem;
+}
+.close:hover,
+.close:focus {
+  color: rgba(0,0,0,0.85);
+  text-decoration: none;
+  cursor: pointer;
+}
+
