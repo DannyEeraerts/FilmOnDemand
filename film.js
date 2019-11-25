@@ -223,6 +223,7 @@ function searchFilm2(inputTitlePartValue){
 				tmpl3.querySelector('li').setAttribute("class", "alternativeMovie");
 				tmpl3.querySelector('li').innerText = extraMovies.results[0].known_for[i].title;
 				target3.appendChild(tmpl3);
+				
 			}
 		})
 		.catch(error => {
