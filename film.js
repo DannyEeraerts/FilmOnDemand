@@ -9,7 +9,7 @@ var inputTitlePartValue = inputTitlePart.value;
 const btn = document.querySelector("#btn");
 const btn2 = document.querySelector("#btn2");
 // parts of the Link variabels
-const firstPartHttpLink = "http://www.omdbapi.com/?";
+const firstPartHttpLink = "https://www.omdbapi.com/?";
 const lastPartHttpLink = "&apikey=6c20b2bc";
 // templates variabels
 const template = document.getElementById("movieTemplate");
@@ -212,7 +212,7 @@ function searchFilm2(inputTitlePartValue){
 				newActorListString += actorNamesArray[i];
 			}
 		}
-		axios.get("http://api.tmdb.org/3/search/person?api_key=123e8de41103fbaabc178ff9d89ea8dd&query="+newActorListString)
+		axios.get("https://api.tmdb.org/3/search/person?api_key=123e8de41103fbaabc178ff9d89ea8dd&query="+newActorListString)
 		.then(response => {
 			let extraMovies = response.data;
 			//console.log(extraMovies);
