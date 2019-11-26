@@ -46,16 +46,18 @@
     </header>
     <main class="container-fluid text-center m-5">
       <div class="row">
-        <div class ="column text-left mx-3 px-5 mb-5">
+        <div class ="col-12 text-left mx-3 px-5 mb-5">
           <h3 class="mb-3">Are you a cinephile?</h3>
           <p>Then you are in the right place. You can find here all the information about any film.
           </p>
+          <p>
+          If you click on a actor or director you get other movies of this actor or director.
+          </p>
           <p>You can search on a exact movietitle or by a a part of the movietitle. If you choose for the second option, by clicking on the movie poster, you get all the information about this individual movie.
           </p>
+          <h3 class="text-uppercase text-center">Lots of fun!</h3>
         </div>
       </div>
-
-      
 
       <form class="border" id="searchform" action="#" method="get">
         <div class="row text-center mt-5 mx-5 mb-4">
@@ -76,8 +78,12 @@
             <h3 class="movieTitle text-center text-lg-left">
               <strong class="title"></strong>
             </h3>
-            <p class = "movieDirector mt-5"></p>
-            <p class = "movieActors"></p>
+            <div class = "directorList">
+              <p class = "movieDirector mt-5"></p>
+            </div>
+            <div class = "actorList">
+              <p class = "movieActors"></p>
+            </div>
             <p class = "movieShortContent"></p>
             <p class = "movieGenre"></p>
             <p class = "movieDuration"></p>
@@ -125,14 +131,27 @@
         <div class="my-modal-content">
           <div class="my-modal-header">
             <span class="close">&times;</span>
-            <h2 class="actorNameModal">Actor Name</h2>
+            <h2 class="actorNameModal directorNameModal pb-2">Actor Name</h2>
           </div>
           <div class="my-modal-body">
-            <p>Also acts in the following films</p>
-            <ul id ="target3">
+            <div class="row">
+              <div class="col-3">
+                <img src="" class="imgActor img-fluid mb-3" alt="picture of actor"> 
+              </div>
+              <div class ="col-9"
+                <p><span class= "font-weight-bold">Biography: </span><span class="bio"></span></p>
+              </div>
+            </div>
+
+            <p><span class= "font-weight-bold">Birtday:</span> <span class="birth"></span><span class= "font-weight-bold pl-3">Deathday: </span> <span class="death"></span></p>
+            <p class="mt-n3"><span class= "font-weight-bold ">Place of birth:</span> <span class="place"></span></p>
+            <p><span class= "font-weight-bold">Also acts in the following movies:</span></p>
+            <ul>
               <template id="otherMovieTemplate">
                 <li>film1</li>
               </template>
+              <div id ="target3">
+              </div>
             </ul>
           </div>
         </div>
