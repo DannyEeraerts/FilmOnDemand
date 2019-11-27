@@ -111,7 +111,7 @@
       <template id="movieTemplate2">
         <div class = "col-12 col-md-6 col-lg-3">
             <div class="card">
-              <div class="embed-responsive">
+              <div class="embed-responsive zoom">
                 <img src="" class="card-img-top embed-responsive-item moviePoster" alt="movie-poster">
               </div>
               <div class="card-body">
@@ -128,23 +128,25 @@
     </main>
 
     <div class="my-modal">
-        <div class="my-modal-content">
+        <div class="my-modal-content p-5">
           <div class="my-modal-header">
             <span class="close">&times;</span>
             <h2 class="actorNameModal directorNameModal pb-2">Actor Name</h2>
           </div>
           <div class="my-modal-body">
             <div class="row">
-              <div class="col-3">
-                <img src="" class="imgActor img-fluid mb-3" alt="picture of actor"> 
+              <div class="col-12 col-md-3 p-2 mb-1">
+                <img src="" class="imgActor img-fluid  mt-1 mb-2 ml-2" alt="picture of actor"> 
               </div>
-              <div class ="col-9"
+              <div class ="col12 col-md-9 px-5 mt-1"
                 <p><span class= "font-weight-bold">Biography: </span><span class="bio"></span></p>
               </div>
             </div>
-
-            <p><span class= "font-weight-bold">Birtday:</span> <span class="birth"></span><span class= "font-weight-bold pl-3">Deathday: </span> <span class="death"></span></p>
-            <p class="mt-n3"><span class= "font-weight-bold ">Place of birth:</span> <span class="place"></span></p>
+            
+            <p><span class= "font-weight-bold pr-1">Born:</span> <span class="birth"></span><span class="px-1">in </span> <span class="place"></span><span class= "font-weight-bold"></span></p>
+              
+            <p class ="mt-n3"><span class= "font-weight-bold pr-1">Death: </span> <span class="death"></span></p>
+            <p class="mt-n3"></p>
             <p><span class= "font-weight-bold">Also acts in the following movies:</span></p>
             <ul>
               <template id="otherMovieTemplate">
