@@ -92,4 +92,6 @@ a:hover{
   text-decoration: none;
   cursor: pointer;
 }
-
+.zoom:hover{
+  transform: scale(1.075);
+}
