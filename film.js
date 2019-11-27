@@ -236,7 +236,6 @@ function searchFilm2(inputTitlePartValue){
 		.catch(error => {
 			console.log("This film is not found , please try again");
 		});
-
 	}
 
 	function newSearch(){
@@ -250,6 +249,7 @@ function searchFilm2(inputTitlePartValue){
 		axios.get(`https://api.themoviedb.org/3/person/${id}?api_key=123e8de41103fbaabc178ff9d89ea8dd`)
 			.then(response => {
 				let extraInfo = response.data;
+				console.log(extraInfo);
 				const bioInfo = document.querySelector(".bio");
 				const birth = document.querySelector(".birth");
 				const death = document.querySelector(".death");
@@ -258,7 +258,9 @@ function searchFilm2(inputTitlePartValue){
 				let imageSource= extraInfo.profile_path;
 				imageActor.src =`https://image.tmdb.org/t/p/original/${imageSource}`;
 				bioInfo.textContent = extraInfo.biography;
-				birth.textContent = extraInfo.birthday;
+				let birthdate = extraInfo.birthday;
+				let convertedDate = convertDate(birthdate);
+				birth.textContent = convertedDate;
 				death.textContent = extraInfo.deathday;
 				place.textContent = extraInfo.place_of_birth;
 				
@@ -267,6 +269,11 @@ function searchFilm2(inputTitlePartValue){
 				console.log("This actor or director is not found , please try again");
 			});
 	}
+
+	function convertDate(dateString) {
+		var date = new Date(dateString);
+		return date.getDate()+"-"+date.getMonth()+"-"+date.getFullYear();
+}
 
 	function refresh(){
 		var inputTitleValue = inputTitle.value;
