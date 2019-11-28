@@ -1,3 +1,7 @@
+//cookie-button
+const cookieBtn = document.querySelector(".acceptcookies");
+const noCookieBtn = document.querySelector(".refusecookies");
+const cookieContainer = document.querySelector(".cookiealert-container");
 const items = document.querySelectorAll(".nav-item");
 //input-variabel-search-one
 const inputTitle = document.querySelector(".input-title");
@@ -22,10 +26,45 @@ const target3 = document.querySelector("#target3");
 const htmlYear = document.querySelector("#htmlYear");
 let year = new Date().getFullYear();
 //error
+const errorBox = document.querySelector(".error-message");
+const errorBox2 = document.querySelector(".error-message2");
 const errorText = document.querySelector(".error");
 const errorText2 = document.querySelector(".error2");
 
+
 htmlYear.textContent = year;
+
+window.addEventListener("load", checkCookie, false);
+
+function checkCookie(){
+
+	if(document.cookie.indexOf("cookie_notice_accepted=") == -1){
+		console.log("no cookies detected");
+		cookieBtn.addEventListener("click",setCookie);
+		noCookieBtn.addEventListener("click",setNoCookie);
+	}
+	else {
+		// cookie is already set
+		alert("cookie exist already");
+		document.cookie = "cookie_notice_accepted=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+		alert("cookie is deleted");
+		cookieContainer.classList.add('show');
+	}
+}
+
+function setCookie(){
+	let expiry = new Date();
+		expiry.setTime(expiry.getTime() + (30 * 24 * 60 * 60 * 1000));
+		document.cookie = "cookie_notice_accepted = true; expires =" + expiry.toGMTString();
+		alert("cookie is set");
+		alert(document.cookie);
+		cookieContainer.classList.toggle('show');
+}
+
+function setNoCookie(){
+	alert("there is no cookie set");
+	cookieContainer.classList.toggle('show');
+}
 
 function toggleActiveClass(){
 	let current = document.querySelector(".active");
@@ -61,7 +100,10 @@ function searchFilm(inputTitleValue){
 		})
 	.catch(error => {
 		//catch error
-			errorText.textContent= "This title is not found , please try again";
+			errorText.innerHTML= "This title is not found , please try again <span class='stop'>&times;</span>";
+			const close = document.querySelector(".stop");
+			openErrorBox();
+			close.addEventListener("click", closeErrorBox);
 
 	});
 	// disabel submit button
@@ -79,7 +121,10 @@ function searchFilm2(inputTitlePartValue){
 	
 			})
 		.catch(error => {
-			errorText2.textContent= "To many result, please be more specific and try again";
+			errorText2.innerHTML= "To many result, please be more specific and try again <span class='stop2'>&times;</span>";
+			const close2 = document.querySelector(".stop2");
+			openErrorBox2();
+			close2.addEventListener("click", closeErrorBox2);
 		});
 	}
 
@@ -318,6 +363,24 @@ function searchFilm2(inputTitlePartValue){
 		}
 	}
 
+	function openErrorBox(){
+		errorBox.style.display = 'block';
+		console.log(errorBox);
+	}
+
+	function closeErrorBox(){
+		errorBox.style.display = 'none';
+	}
+
+	function openErrorBox2(){
+		errorBox2.style.display = 'block';
+		console.log(errorBox);
+	}
+
+	function closeErrorBox2(){
+		errorBox2.style.display = 'none';
+	}
+	//cookieBtn.addEventListener("click",acceptCookies);
 	inputTitle.addEventListener("input", checkInput);
 	inputTitle.addEventListener("blur", checkInput);
 	inputTitlePart.addEventListener("input", checkInput2);
@@ -328,6 +391,7 @@ function searchFilm2(inputTitlePartValue){
 	for (let i = 0; i < items.length; i++) {
 		items[i].addEventListener("click", toggleActiveClass);
 	}
+	
 
 
 
